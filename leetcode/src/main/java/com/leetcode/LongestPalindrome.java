@@ -9,7 +9,7 @@ package com.leetcode;
  */
 public class LongestPalindrome {
     public static void main(String[] args) {
-        String[] str = new String[]{"abcda", "ababababa", "abb", "babad", "cbbd"};
+        String[] str = new String[]{"babad", "abcda", "ababababa", "abb", "cbbd"};
         for (String s : str) {
             System.out.println(s + " : " + manacher(s));
         }
@@ -41,6 +41,7 @@ public class LongestPalindrome {
     }
 
     //manacher算法
+    //code from https://github.com/phishman3579/java-algorithms-implementation/blob/master/test/com/jwetherell/algorithms/strings/test/ManacherTests.java
     public static String manacher(String s) {
         if (s == null || s.length() == 0) {
             return s;

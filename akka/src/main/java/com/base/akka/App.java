@@ -19,23 +19,22 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("app", ConfigFactory.load());
-        ActorRef actorRef = actorSystem.actorOf(Props.create(EventActor.class).withDispatcher("my-thread-pool-dispatcher"));
+        ActorRef actorRef = actorSystem.actorOf(Props.create(EventActor.class));
+
         actorSystem.eventStream().subscribe(actorRef, Msg.class);
 
         List<Msg> msgList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 100; i++) {
             Msg msg = new ChineseMsg(Message.Chinases, "中文课" + i);
             msgList.add(msg);
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 100; i++) {
             Msg msg = new EnglishMsg(Message.English, "英文" + i);
             msgList.add(msg);
         }
         for (Msg msg : msgList) {
-            new Thread(() -> {
-                actorSystem.eventStream().publish(msg);
-            }).start();
+            actorSystem.eventStream().publish(msg);
         }
 //        actorSystem.terminate();
     }

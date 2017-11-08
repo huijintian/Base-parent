@@ -5,7 +5,6 @@
 base-orm/
 config/
 dl4j/readme.md
-dl4j/src/
 dl4j/target/
 leetcode/readme.md
 leetcode/src/main/resources/
@@ -14,6 +13,3 @@ leetcode/target/
 nlp/target/
 readme.md
 resource/
-springboot/src/
-springboot/target/
-nlp/src/
