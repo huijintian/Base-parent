@@ -1,7 +1,6 @@
 package com.leetcode;
 
 /**
- * <<<<<<< HEAD
  * Created by mengtian on 2017/11/6
  * <p>
  * https://leetcode.com/problems/longest-palindromic-substring/description/
@@ -47,13 +46,13 @@ public class LongestPalindrome {
             return s;
         }
         int sLength = s.length();
-        final char[] arr = new char[2 * s.length() + 1];
+        final char[] arr = new char[2 * sLength + 1];
         for (int i = sLength - 1; i >= 0; i--) {
             arr[2 * i + 1] = s.charAt(i);
             arr[2 * i] = '#';
         }
         arr[2 * sLength] = '#';
-        int arrLength = arr.length;
+        int arrLength = sLength * 2;
         int[] LPS = new int[arrLength + 1];
         int p = 0;
         for (int i = 1; i < arrLength; i++) {
