@@ -1,4 +1,4 @@
-package com.base.akka.actor;
+package com.base.akka.simple.actor;
 
 
 import akka.actor.*;

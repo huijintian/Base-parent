@@ -1,12 +1,11 @@
-package com.base.akka.actor;
+package com.base.akka.simple.actor;
 
 import akka.actor.AbstractActor;
 import akka.actor.Actor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.japi.Creator;
-import akka.pattern.Patterns;
-import com.base.akka.msg.Msg;
+import com.base.akka.simple.msg.Msg;
 
 /**
  * Created by mengtian on 2017/11/7

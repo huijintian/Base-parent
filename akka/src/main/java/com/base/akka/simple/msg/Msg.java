@@ -1,4 +1,4 @@
-package com.base.akka.msg;
+package com.base.akka.simple.msg;
 
 /**
  * Created by mengtian on 2017/11/7

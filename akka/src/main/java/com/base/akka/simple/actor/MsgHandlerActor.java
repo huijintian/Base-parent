@@ -1,8 +1,8 @@
-package com.base.akka.actor;
+package com.base.akka.simple.actor;
 
 import akka.actor.AbstractActor;
-import com.base.akka.msg.ChineseMsg;
-import com.base.akka.msg.EnglishMsg;
+import com.base.akka.simple.msg.ChineseMsg;
+import com.base.akka.simple.msg.EnglishMsg;
 
 /**
  * Created by mengtian on 2017/11/8

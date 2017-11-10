@@ -1,13 +1,13 @@
-package com.base.akka;
+package com.base.akka.simple;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-import com.base.akka.actor.EventActor;
-import com.base.akka.msg.ChineseMsg;
-import com.base.akka.msg.EnglishMsg;
-import com.base.akka.msg.Message;
-import com.base.akka.msg.Msg;
+import com.base.akka.simple.actor.EventActor;
+import com.base.akka.simple.msg.ChineseMsg;
+import com.base.akka.simple.msg.EnglishMsg;
+import com.base.akka.simple.msg.Message;
+import com.base.akka.simple.msg.Msg;
 import com.typesafe.config.ConfigFactory;
 
 import java.util.ArrayList;

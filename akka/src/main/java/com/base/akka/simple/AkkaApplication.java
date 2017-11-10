@@ -1,4 +1,4 @@
-package com.base.akka;
+package com.base.akka.simple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
