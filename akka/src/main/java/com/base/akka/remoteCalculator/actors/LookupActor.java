@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by mengtian on 2017/11/13
  */
-public class LoopupActor extends AbstractActor {
+public class LookupActor extends AbstractActor {
     private final String path;
     private ActorRef calculator = null;
 
@@ -42,7 +42,7 @@ public class LoopupActor extends AbstractActor {
             .build();
 
 
-    public LoopupActor(String path) {
+    public LookupActor(String path) {
         this.path = path;
         sendIdentifyRequest();
     }
