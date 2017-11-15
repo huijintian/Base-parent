@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class SegmentFile {
     public static void main(String[] args) throws IOException {
-        String filePath = "E:\\txt\\novel";
+        String filePath = SegmentFile.class.getResource("/novel").getPath();
         List<String> files = FileUtil.listFile(filePath, true);
         for (String file : files) {
             LineProcessor processor = new SegmentLineProcess();
