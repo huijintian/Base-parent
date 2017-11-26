@@ -74,7 +74,7 @@ public class ID3Tool {
             attrValue.put(data[0][j], tempValues);
         }
         for (Map.Entry<String, ArrayList<String>> entry : attrValue.entrySet()) {
-            System.out.println("ket:value" + entry.getKey() + ":" + entry.getValue());
+            System.out.println("ket:value  -->" + entry.getKey() + ":" + entry.getValue());
         }
     }
 
@@ -251,6 +251,10 @@ public class ID3Tool {
                 gainValue = tempValue;
                 attrName = remainAttr.get(i);
             }
+        }
+
+        if(attrName == ""){
+            return;
         }
 
         node.setAttrName(attrName);
