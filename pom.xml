@@ -15,6 +15,7 @@
         <module>dl4j</module>
         <module>springboot</module>
         <module>nlp</module>
+        <module>Algorithm</module>
     </modules>
 
     <properties>
