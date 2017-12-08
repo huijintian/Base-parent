@@ -9,6 +9,10 @@ import java.util.List;
  */
 public class FileUtil {
     public static List<String> listFile(String path, boolean fullPath) {
+        return listFile(path, null, fullPath);
+    }
+
+    public static List<String> listFile(String path, String ext, boolean fullPath) {
         List<String> files = new ArrayList<>();
         File p = new File(path);
         if (!p.isDirectory()) {
@@ -17,11 +21,21 @@ public class FileUtil {
         File[] listFiles = p.listFiles();
         for (File listFile : listFiles) {
             if (listFile.isDirectory()) {
-                files.addAll(listFile(listFile.getAbsolutePath(), fullPath));
+                files.addAll(listFile(listFile.getAbsolutePath(), ext, fullPath));
             } else {
-                files.add(fullPath ?
-                        listFile.getAbsolutePath() :
-                        p.getName().concat(File.separator).concat(listFile.getName()));
+                if (ext != null) {
+                    String fileAbsolutePath = listFile.getAbsolutePath();
+                    if (fileAbsolutePath.contains(".")
+                            && fileAbsolutePath.substring(fileAbsolutePath.lastIndexOf(".") + 1).equals(ext)) {
+                        files.add(fullPath ?
+                                listFile.getAbsolutePath() :
+                                p.getName().concat(File.separator).concat(listFile.getName()));
+                    }
+                } else {
+                    files.add(fullPath ?
+                            listFile.getAbsolutePath() :
+                            p.getName().concat(File.separator).concat(listFile.getName()));
+                }
             }
         }
         return files;

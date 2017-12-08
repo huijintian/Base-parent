@@ -16,6 +16,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>parent</groupId>
+            <artifactId>com.base.util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--分词-->
         <dependency>
             <groupId>com.hankcs</groupId>

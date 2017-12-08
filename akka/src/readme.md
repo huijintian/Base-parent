@@ -1,0 +1,1 @@
+**_`wordCount部分代码来自https://github.com/write2munish/Akka-Essentials/blob/master/.gitignore`_**

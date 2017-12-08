@@ -1,0 +1,1 @@
+运行main方法时，需要在VM里配置：-Dspark.master=local来运行spark程序

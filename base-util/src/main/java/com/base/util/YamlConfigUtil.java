@@ -1,12 +1,12 @@
 package com.base.util;
 
-import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringUtils;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -29,7 +29,7 @@ public class YamlConfigUtil {
         } else {
             upKey += ".";
         }
-        Map<String, Object> result = Maps.newHashMap();
+        Map<String, Object> result = new HashMap<>();
         for (Object key : map.keySet()) {
             Object value = map.get(key);
             if (value instanceof String) {

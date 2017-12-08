@@ -1,4 +1,4 @@
-package com.simulation.robot.util;
+package com.base.util;
 
 import org.apache.commons.lang3.StringUtils;
 
