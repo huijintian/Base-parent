@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * Created by mengtian on 2017/12/3
+ * <p>
+ * https://leetcode.com/problems/3sum-closest/description/
  */
 public class ThreeSumClosest {
     public static void main(String[] args) {

@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Created by mengtian on 2017/12/5
+ * <p>
+ * https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
  */
 public class LetterCombinations {
     public static void main(String[] args) {
@@ -13,7 +15,7 @@ public class LetterCombinations {
     }
 
     public static List<String> letterCombinations(String digits) {
-        if(digits.trim().length() == 0){
+        if (digits.trim().length() == 0) {
             return new LinkedList<>();
         }
         LinkedList<String> ans = new LinkedList<>();

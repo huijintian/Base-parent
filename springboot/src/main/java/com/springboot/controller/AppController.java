@@ -18,6 +18,6 @@ public class AppController {
     @RequestMapping("/")
     @ResponseBody
     public String app() {
-        return configInstance.getAppConfig().getUrl();
+        return "hello world";
     }
 }
