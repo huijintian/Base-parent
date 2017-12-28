@@ -16,6 +16,9 @@
         <module>springboot</module>
         <module>nlp</module>
         <module>Algorithm</module>
+        <module>spark-ml-learning</module>
+        <module>common-spring</module>
+        <module>spring-data</module>
     </modules>
 
     <properties>
@@ -64,11 +67,11 @@
             <version>${common.io.version}</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!--yml配置读取-->
         <dependency>
@@ -86,7 +89,7 @@
         </dependency>
 
         <!--json-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
@@ -100,7 +103,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>junit</groupId>

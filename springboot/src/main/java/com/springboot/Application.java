@@ -1,15 +1,19 @@
 package com.springboot;
 
+import com.springboot.shiro.UserAccessFilter;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
+import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.filter.authc.UserFilter;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,6 +27,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Bean
+    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
+        return new LifecycleBeanPostProcessor();
     }
 
     @Bean
@@ -43,6 +52,15 @@ public class Application {
         chainDefinition.addPathDefinition("/user/*", "authc");
         return chainDefinition;
     }
+
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        filterRegistrationBean.setFilter(new UserAccessFilter());
+        filterRegistrationBean.setOrder(1);
+        return filterRegistrationBean;
+    }
+
 
     //ModelAttribute 注解在方法上，在执行所有的controller的mappering前会先执行被ModelAttribute 注解的方法。
     //带返回值的方法，返回值会被自动添加到Model中

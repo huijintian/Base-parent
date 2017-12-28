@@ -2,6 +2,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.junit.Test;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -21,5 +22,11 @@ public class JwtTest {
         System.out.println(token);
 
         assert Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody().getSubject().equals("test");
+    }
+
+    @Test
+    public void test(){
+        Double test = null;
+        System.out.println(new BigDecimal(test).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue());
     }
 }
