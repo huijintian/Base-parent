@@ -51,4 +51,9 @@ public class ReadConfig {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void fileCascadeTest(){
+        System.out.println(FileUtil.listFile("E:\\txt", null));
+    }
 }

@@ -1,5 +1,6 @@
 package com.springboot.controller;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ public class UserController {
 
     @RequestMapping("/{id}")
     @ResponseBody
+    @RequiresPermissions("read")
     public String info(@PathVariable("id") Integer id) {
         return "as:" + id;
     }

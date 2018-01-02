@@ -33,4 +33,13 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <version>3.0.2.RELEASE</version>
+        </dependency>
+    </dependencies>
 </project>
