@@ -103,14 +103,18 @@ public class CSVUtil {
             if (titles != null) {
                 for (int i = 0; i < titles.length; i++) {
                     writer.write(titles[i]);
-                    writer.write(",");
+                    if (i != titles.length - 1) {
+                        writer.write(",");
+                    }
                 }
                 writer.newLine();
             }
             for (String[] content : contents) {
-                for (String txt : content) {
-                    writer.write(HtmlScriptUtil.replaceHtml(txt));
-                    writer.write(",");
+                for (int i = 0; i < content.length; i++) {
+                    writer.write(content[i]);
+                    if (i != content.length - 1) {
+                        writer.write(",");
+                    }
                 }
                 writer.newLine();
             }
