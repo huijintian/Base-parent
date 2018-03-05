@@ -38,46 +38,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @ExceptionHandler(UnauthenticatedException.class)
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public void handleException(UnauthenticatedException e) {
-        System.err.println(("{} was thrown" + e));
-    }
-
-    @ExceptionHandler(AuthorizationException.class)
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public void handleException(AuthorizationException e) {
-        System.err.println(("{} was thrown" + e));
-    }
-
-    @Bean
-    public Realm realm() {
-        JdbcRealm realm = new JdbcRealm();
-        realm.setAuthenticationQuery("select user_pwd from user where user_name = ?");
-//        realm.setUserRolesQuery("");
-        realm.setCachingEnabled(true);
-        return realm;
-    }
-
-    @Bean
-    public ShiroFilterChainDefinition shiroFilterChainDefinition() {
-        DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
-        // use permissive to NOT require authentication, our controller Annotations will decide that
-        chainDefinition.addPathDefinition("/**", "authcBasic[permissive]");
-        return chainDefinition;
-    }
-
-    @Bean
-    public CacheManager cacheManager() {
-        // Caching isn't needed in this example, but we will use the MemoryConstrainedCacheManager for this example.
-        return new MemoryConstrainedCacheManager();
-    }
-
-
-    //ModelAttribute 注解在方法上，在执行所有的controller的mappering前会先执行被ModelAttribute 注解的方法。
-    //带返回值的方法，返回值会被自动添加到Model中
-    @ModelAttribute(name = "subject")
-    public Subject subject() {
-        return SecurityUtils.getSubject();
-    }
 }
