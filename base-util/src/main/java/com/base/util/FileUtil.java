@@ -1,10 +1,10 @@
 package com.base.util;
 
-import com.base.util.model.FileCascades;
+import com.google.common.io.Files;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,7 +19,6 @@ public class FileUtil {
         List<String> files = new ArrayList<>();
         File p = new File(path);
         if (!p.isDirectory()) {
-            files.add(path);
             return files;
         }
         File[] listFiles = p.listFiles();
@@ -45,35 +44,21 @@ public class FileUtil {
         return files;
     }
 
-    public static FileCascades listFile(String path, String ext) {
-        FileCascades fileCascades = new FileCascades();
-
-        fileCascades.setFile(path);
-
-        File p = new File(path);
-        if (!p.isDirectory()) {
-            return fileCascades;
-        }
-        File[] listFiles = p.listFiles();
-
-        List<FileCascades> cascades = new LinkedList<>();
-        for (File listFile : listFiles) {
-            if (listFile.isDirectory()) {
-                cascades.add(listFile(listFile.getAbsolutePath(), ext));
-            } else {
-                if (ext != null) {
-                    String fileAbsolutePath = listFile.getAbsolutePath();
-                    if (fileAbsolutePath.contains(".")
-                            && fileAbsolutePath.substring(fileAbsolutePath.lastIndexOf(".") + 1)
-                            .equals(ext)) {
-                        cascades.add(new FileCascades(fileAbsolutePath));
-                    }
-                } else {
-                    cascades.add(new FileCascades(listFile.getAbsolutePath()));
-                }
+    public static void newDirs(String... paths) throws IOException {
+        for (String path : paths) {
+            if (path.contains(".")) {
+                System.out.println(path + " is a file, just create parent dir");
+                Files.createParentDirs(new File(path));
+                continue;
             }
+            newDir(path);
         }
-        fileCascades.setChildFiles(cascades);
-        return fileCascades;
+    }
+
+    public static void newDir(String path) {
+        File file = new File(path);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
     }
 }

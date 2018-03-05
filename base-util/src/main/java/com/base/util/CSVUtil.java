@@ -66,6 +66,7 @@ public class CSVUtil {
                 }
             }
             while ((line = reader.readLine()) != null) {
+
                 String[] content = line.split(",");
                 contents.add(content);
             }
